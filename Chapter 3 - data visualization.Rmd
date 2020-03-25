@@ -1,0 +1,42 @@
+---
+title: "Chapter 1"
+author: "Fechar Ourotcha"
+date: "3/25/2020"
+output:html_document 
+pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+loading the mpg dataframe
+```{r setup,echo=TRUE}
+library(tidyverse)
+
+mpg
+ggplot(data = mpg)+ geom_point(mapping = aes(x = displ, y = hwy, color = class))
+```
+
+
+```{r setup,echo=TRUE}
+
+mpg
+ggplot(data = mpg)+ geom_point(mapping = aes(x = displ, y = hwy, shape = class))
+```
+
+```{r}
+
+ggplot(data = mpg)+ geom_point(mapping = aes(x = displ, y = hwy), color = "green", pch = 13)
+```
+here we can separate the graph into smaller graphs with facet_wrap function 
+```{r}
+
+ggplot(data = mpg)+ geom_point(mapping = aes(x = displ, y = hwy, color = class)) + facet_wrap(~ class, nrow = 4)
+```
+
+```{r}
+ggplot(data = mpg)+ geom_point(mapping = aes(x = displ, y = hwy, color = class)) + facet_grid(drv ~ cyl)
+
+```
+
